@@ -36,7 +36,7 @@ jobs:
       with:
         payload: |
           {
-            "text": ":cross: GitHub Action failed"
+            "text": ":x: GitHub Action failed"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
