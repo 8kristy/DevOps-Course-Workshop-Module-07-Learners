@@ -1,3 +1,5 @@
+![Workflow](https://github.com/8kristy/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg?branch=cicd)
+
 # Workshop Module 07
 
 This repository is for learners on Corndel's DevOps apprenticeship.

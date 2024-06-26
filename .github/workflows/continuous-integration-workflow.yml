@@ -1,0 +1,65 @@
+name: Continuous Integration
+on: [push, pull_request]   
+branches: 
+  - main
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest      
+    steps:
+    - uses: actions/checkout@v4 
+
+    - name: Build C# code
+      run: dotnet build
+
+    - name: Run C# tests
+      run: dotnet test
+
+    - name: Build TypeScript code
+      run: | 
+        cd DotnetTemplate.Web
+        npm install
+        npm run build
+
+    - name: Run TypeScript linter
+      run: | 
+        cd DotnetTemplate.Web
+        npm run lint
+
+    - name: Run TypeScript tests
+      run: | 
+        cd DotnetTemplate.Web
+        npm test
+
+    - name: Send GitHub Action failure notification to Slack channel
+      if: failure()
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        payload: |
+          {
+            "text": ":x: GitHub Action failed"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Send GitHub Action success notification to Slack channel
+      if: success()
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        payload: |
+          {
+            "text": ":white_check_mark: GitHub Action succeeded"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Send GitHub Action cancelled notification to Slack channel
+      if: cancelled()
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        payload: |
+          {
+            "text": ":warning: GitHub Action cancelled by ${{ github.actor }}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
