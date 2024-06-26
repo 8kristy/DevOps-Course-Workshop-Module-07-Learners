@@ -1,4 +1,4 @@
-![Workflow](https://github.com/8kristy/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg?branch=cicd)
+![Workflow](https://github.com/8kristy/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg)
 
 # Workshop Module 07
 
