@@ -47,7 +47,7 @@ jobs:
       with:
         payload: |
           {
-            "text": ":tick: GitHub Action succeeded"
+            "text": ":white_check_mark: GitHub Action succeeded"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
