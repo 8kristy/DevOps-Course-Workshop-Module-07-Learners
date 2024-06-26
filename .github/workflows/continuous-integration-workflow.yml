@@ -58,7 +58,7 @@ jobs:
       with:
         payload: |
           {
-            "text": ":warning: GitHub Action cancelled"
+            "text": ":warning: GitHub Action cancelled by ${{ github.actor }}"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
