@@ -36,9 +36,7 @@ jobs:
       with:
         payload: |
           {
-            "username": "GitHub Actions"
-            "text": "GitHub Action failed",
-            "icon_emoji": ":cross:"
+            "text": ":cross: GitHub Action failed"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -49,9 +47,7 @@ jobs:
       with:
         payload: |
           {
-            "username": "GitHub Actions"
-            "text": "GitHub Action succeeded",
-            "icon_emoji": ":tick:"
+            "text": ":tick: GitHub Action succeeded"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -62,9 +58,7 @@ jobs:
       with:
         payload: |
           {
-            "username": "GitHub Actions"
-            "text": "GitHub Action cancelled by ${{github.actor}}",
-            "icon_emoji": ":warning:"
+            "text": ":warning: GitHub Action cancelled"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
