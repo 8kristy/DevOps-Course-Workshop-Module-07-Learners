@@ -89,3 +89,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/dotnettemplate
+
+      - name: Deploy Azure webapp
+        id: deploy
+        run: curl -dH -X POST "${{ secrets.AZURE_WEBHOOK }}"
