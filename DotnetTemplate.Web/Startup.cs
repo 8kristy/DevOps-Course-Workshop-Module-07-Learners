@@ -22,6 +22,7 @@ namespace DotnetTemplate.Web
             {
                 mvcBuilder.AddRazorRuntimeCompilation();
             }
+            services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app)
