@@ -92,4 +92,4 @@ jobs:
 
       - name: Deploy Azure webapp
         id: deploy
-        run: curl -dH -X POST "${{ secrets.AZURE_WEBHOOK }}"
+        run: curl -dH -X POST '${{ secrets.AZURE_WEBHOOK }}'
