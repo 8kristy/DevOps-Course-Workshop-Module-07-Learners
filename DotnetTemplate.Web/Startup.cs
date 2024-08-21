@@ -41,6 +41,7 @@ namespace DotnetTemplate.Web
         private static void ConfigureEndPointsAsync(IEndpointRouteBuilder endpoints)
         {
             endpoints.MapControllerRoute("default", "{controller=Home}/{action=FirstPage}");
+            endpoints.MapHealthChecks("/health");
         }
     }
 }

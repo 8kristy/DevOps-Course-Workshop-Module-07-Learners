@@ -12,3 +12,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /opt/app
 COPY --from=build-stage /opt/dotnet/out /opt/app/
 ENTRYPOINT ["dotnet", "./DotnetTemplate.Web.dll"]
+HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
